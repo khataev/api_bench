@@ -1,0 +1,1 @@
+ab -n 100000 -c 1 -k -H "Accept-Encoding: gzip, deflate" http://server:4567/

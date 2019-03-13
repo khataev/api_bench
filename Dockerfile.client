@@ -1,0 +1,7 @@
+FROM russmckendrick/ab
+
+RUN mkdir /app
+WORKDIR /app
+COPY ./bench.sh /app
+RUN chmod +x bench.sh
+# CMD ./bench.sh

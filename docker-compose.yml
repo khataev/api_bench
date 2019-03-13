@@ -1,0 +1,19 @@
+version: '3'
+services:
+  server:
+    # tty: true
+    # stdin_open: true
+    # logging:
+    #   driver: "none"
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    ports:
+      - "4567:4567"
+  client:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    command: sh -c "./bench.sh"
+    depends_on:
+      - server

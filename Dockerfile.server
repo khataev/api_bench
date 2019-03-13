@@ -1,0 +1,11 @@
+FROM ruby:2.6.1
+
+RUN mkdir /app
+WORKDIR /app
+RUN echo -e "install: --no-rdoc --no-ri\nupdate:  --no-rdoc --no-ri" > $HOME/.gemrc
+ENV LC_ALL=C.UTF-8
+RUN gem install sinatra
+RUN gem install puma
+COPY . /app
+CMD ruby server.rb
+# CMD rackup --h
